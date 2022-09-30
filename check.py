@@ -1,11 +1,11 @@
 def check_telephone_number(symbol: str) -> str:
     '''
-    Поверка ввода номера телефона
+    Проверка ввода номера телефона
     '''
     while True:
         try:
             number = input(symbol)
-            if number  in '+123-4567890':
+            if number  in '1234567890':
                 return number
             else:
                 print('Ошибка! Введены некорректные символы!')
@@ -15,7 +15,7 @@ def check_telephone_number(symbol: str) -> str:
 
 def check_int_number(number: str) -> int:
     '''
-    Поверка на целое число
+    Проверка на целое число
     '''
     while True:
         try:
