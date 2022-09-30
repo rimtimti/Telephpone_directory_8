@@ -1,7 +1,7 @@
 # Responsibilities
 * check - Иван
 * controller - 
-* user_interface - 
+* user_interface - Денис 
 * block_diagram - 
 * logs - Иван
 * function (импорт, экспорт, запись) - 

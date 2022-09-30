@@ -1,21 +1,22 @@
 import check as c
 
-def imp():
+def imp(list_of_data):
     """
     Импорт данных
     """
-    str1 = input("Введите фамилию: ")
-    str2 = input("Введите имя: ")
-    str3 = input("Введите номер телефона: ")
-    str4 = input("Введите комментарий: ")
+    # entry_f = input("Введите фамилию: ")
+    # entry_n = input("Введите имя: ")
+    # entry_tel = input("Введите номер телефона: ")
+    # entry_about = input("Введите комментарий: ")
     with open('Telephpone_directory_8/Telephone_base.txt', 'a', encoding="utf-8") as f:
-        f.write('\n' + str1 + '\n' + str2 + '\n' + str3 + '\n' + str4 + '\n')
-
-def exp():
+        f.write('\n\r')
+        f.write('\n'.join(list_of_data))
+                
+def exp(text):
     """
     Поиск и экспорт нужных данных
     """
-    text = input("Введите значение для поиска: ")
+    # text = input("Введите значение для поиска: ")
     with open('Telephpone_directory_8/Telephone_base.txt', 'r', encoding='utf-8') as f:
         lst = f.read().splitlines()
     for i in range(len(lst)):
