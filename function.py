@@ -21,8 +21,9 @@ def exp(text):
         lst = f.read().splitlines()
     for i in range(len(lst)):
         if text in lst[i]:
-            temp = i % 5
-            result = (lst[i-temp:i+4-temp])
+            temp = i % 6
+            result = (lst[i-temp:i+5-temp])
+            print (text, result)
             return text, result
     return text, "Данные отсутсвуют"
 
