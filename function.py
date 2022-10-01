@@ -33,3 +33,14 @@ def choice():
     """
     num = c.check_int_number("Импорт данных - 1\nЭкспорт данных - 2\n")
     return num
+
+def read_base():
+    '''
+    Экспорт данных из файла в виде списка списков
+    '''
+    with open('Telephone_base.txt', 'r', encoding='utf-8') as f:
+        lst = f.read().splitlines()
+    result = []
+    for i in range(int(len(lst)/6)+1):
+        result.append(lst[i*6:i*6+5])
+    return result

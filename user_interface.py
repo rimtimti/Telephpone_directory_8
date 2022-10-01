@@ -22,29 +22,77 @@ def save():
     entry_tel.delete(0, END)
     entry_about.delete(0, END)
     
+
+
 def show():
     '''
     обрабатывается нажатие кнопки "Показать базу". В переменной текст должен быть список списков
     '''
-    text, result = func.exp(entry_search.get())
+    # root = Tk()
+    result = func.read_base()
+    print(result)
+    # root = Tk()
+    # root.title('Телефонный справочник')
+    # title.configure(font = ('arial', 10, 'bold')) 
+    # title.grid(row = 0, column = 0, columnspan = 4)
+    # root.geometry("500x500")
+    
+    # text = ttk.Text(parent)
+    # text.pack(side='left')
+    # data_var = StringVar(value=result)
+    # listbox = Listbox(root, listvariable=data_var, )
+    # listbox.pack(side = LEFT, fill = BOTH)
+    
+    # frame = Frame(width="500",height="500")
+    # frame.pack()
+    # swin = ScrolledWindow(frame, width=500, height=500)
+    # swin.pack()
+
+    # scrollbar = Scrollbar(root, width=500, height=500)
+    # scrollbar.pack(side = RIGHT, fill = BOTH)
+    
+    # for values in result:
+    #     listbox.insert(END, values)
+        
+    # listbox.config(yscrollcommand = scrollbar.set)
+    # scrollbar.config(command = listbox.yview)
+    # root.mainloop()
+    class Table:
+     
+        def __init__(self,root):
+            
+            # code for creating table
+            for i in range(total_rows):
+                for j in range(total_columns):
+                    
+                    self.e = Entry(root, width=20, fg='blue',
+                                font=('Arial',10,'bold'))
+                    
+                    self.e.grid(row=i, column=j)
+                    self.e.insert(END, lst[i][j])
+    
+    
+    lst=result    
+    total_rows = len(lst)
+    total_columns = len(lst[0])
+    
+    # create root window
     root = Tk()
-    root.title('Телефонный справочник')
-    title.configure(font = ('arial', 10, 'bold')) 
-    title.grid(row = 0, column = 0, columnspan = 4)
-    root.geometry("250x200")
-    
-    
-    data_var = StringVar(value=text)
-    listbox = Listbox(listvariable=data_var)
-    listbox.pack(side=LEFT, fill=BOTH, expand=1)
-    
-    scrollbar = ttk.Scrollbar(orient="vertical", command=listbox.yview)
-    scrollbar.pack(side=RIGHT, fill=Y)
-    
-    listbox["yscrollcommand"]=scrollbar.set
-    
-    root.mainloop()        
-    return
+    t = Table(root)
+    root.mainloop()  
+
+
+ 
+# take the data
+# lst = [(1,'Raj','Mumbai',19),
+#        (2,'Aaryan','Pune',18),
+#        (3,'Vaishnavi','Mumbai',20),
+#        (4,'Rachna','Mumbai',21),
+#        (5,'Shubham','Delhi',21)]
+  
+# find total number of rows and
+# columns in list
+  
     
 def find():
     '''
@@ -100,7 +148,7 @@ entry_o.grid(row = 3, column = 1, columnspan = 1, ipadx=40, pady =5)
 hint = Label(root, text = 'Телефон:')
 hint.grid(row = 4, column = 0, ipadx=10, pady =10)
 entry_tel = Entry(root)
-entry_tel.grid(row = 4, column = 1, ipadx=10, pady =10)
+entry_tel.grid(row = 4, column = 1, ipadx=10, pady =10, sticky= W)
 
 hint = Label(root, text = 'Описание:')
 hint.grid(row = 5, column = 0, ipadx=10, pady =10)
