@@ -24,10 +24,3 @@ def exp():
             result = (lst[i-temp:i+4-temp])
             return text, result
     return text, "Данные отсутсвуют"
-
-def choice():
-    """
-    Выбор операции
-    """
-    num = c.check_int_number("Импорт данных - 1\nЭкспорт данных - 2\n")
-    return num
