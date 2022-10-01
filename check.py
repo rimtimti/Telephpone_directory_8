@@ -12,5 +12,3 @@ def check_telephone_number(symbol: str) -> str:
         except ValueError:
             print('Ошибка! Введены некорректные символы!')
 
-
-
