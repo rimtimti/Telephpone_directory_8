@@ -1,10 +1,10 @@
 # Responsibilities
-* check - Иван
-* controller - 
+* check - Денис
+* controller - Денис
 * user_interface - Денис 
-* block_diagram - 
+* block_diagram - Давид
 * logs - Иван
-* function (импорт, экспорт, запись) - 
+* function (импорт, экспорт, запись) - Иван, Давид, Денис
 * README - Иван
 * main - Иван
 
