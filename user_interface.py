@@ -24,13 +24,9 @@ def save():
     
 def show():
     '''
-    обрабатывается нажатие кнопки "Показать базу"
+    обрабатывается нажатие кнопки "Показать базу". В переменной текст должен быть список списков
     '''
-    text, result = func.exp(entry_search.get())
-    # title = Label(root, text = 'Телефонный справочник')
-    
-# Нужно разобраться с функцией exp() она должна возвращать список списков или словарей
-    
+    result = func.exp(entry_search.get())
     root = Tk()
     root.title('Телефонный справочник')
     title.configure(font = ('arial', 10, 'bold')) 
@@ -38,7 +34,7 @@ def show():
     root.geometry("250x200")
     
     
-    data_var = StringVar(value=text)
+    data_var = StringVar(value=result)
     listbox = Listbox(listvariable=data_var)
     listbox.pack(side=LEFT, fill=BOTH, expand=1)
     
@@ -47,16 +43,31 @@ def show():
     
     listbox["yscrollcommand"]=scrollbar.set
     
-    root.mainloop()
-
+    root.mainloop()        
     return
-    
+
 def find():
     '''
     обрабатывается нажатие кнопки "Найти"
     '''
     # переменная для поиска 
     # entry_search.get()
+    text, result = func.exp(entry_search.get())
+    if result != "Данные отсутсвуют":
+        # print(text,result)
+        entry_f.insert(0, result[0])
+        entry_n.insert(0, result[1])
+        entry_o.insert(0, result[2])
+        entry_tel.insert(0, result[3])
+        entry_about.insert(0, result[4])
+    else:
+        messagebox.showinfo('Такой строки нет')
+        
+    # title = Label(root, text = 'Телефонный справочник')
+    
+# Нужно разобраться с функцией exp() она должна возвращать список списков или словарей
+    
+ 
     
 def selected(event):
     '''
