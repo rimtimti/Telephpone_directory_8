@@ -28,35 +28,9 @@ def show():
     '''
     обрабатывается нажатие кнопки "Показать базу". В переменной текст должен быть список списков
     '''
-    # root = Tk()
     result = func.read_base()
     print(result)
-    # root = Tk()
-    # root.title('Телефонный справочник')
-    # title.configure(font = ('arial', 10, 'bold')) 
-    # title.grid(row = 0, column = 0, columnspan = 4)
-    # root.geometry("500x500")
-    
-    # text = ttk.Text(parent)
-    # text.pack(side='left')
-    # data_var = StringVar(value=result)
-    # listbox = Listbox(root, listvariable=data_var, )
-    # listbox.pack(side = LEFT, fill = BOTH)
-    
-    # frame = Frame(width="500",height="500")
-    # frame.pack()
-    # swin = ScrolledWindow(frame, width=500, height=500)
-    # swin.pack()
 
-    # scrollbar = Scrollbar(root, width=500, height=500)
-    # scrollbar.pack(side = RIGHT, fill = BOTH)
-    
-    # for values in result:
-    #     listbox.insert(END, values)
-        
-    # listbox.config(yscrollcommand = scrollbar.set)
-    # scrollbar.config(command = listbox.yview)
-    # root.mainloop()
     class Table:
      
         def __init__(self,root):
@@ -75,23 +49,15 @@ def show():
     lst=result    
     total_rows = len(lst)
     total_columns = len(lst[0])
+ 
     
     # create root window
     root = Tk()
     t = Table(root)
+    scrollbar = Scrollbar(t, width=500, height=500)
+    scrollbar.pack(side = RIGHT, fill = BOTH)
     root.mainloop()  
 
-
- 
-# take the data
-# lst = [(1,'Raj','Mumbai',19),
-#        (2,'Aaryan','Pune',18),
-#        (3,'Vaishnavi','Mumbai',20),
-#        (4,'Rachna','Mumbai',21),
-#        (5,'Shubham','Delhi',21)]
-  
-# find total number of rows and
-# columns in list
   
     
 def find():
@@ -102,7 +68,7 @@ def find():
     # entry_search.get()
     text, result = func.exp(entry_search.get())
     if result != "Данные отсутсвуют":
-        print(text,result)
+        # print(text,result)
         entry_f.insert(0, result[0])
         entry_n.insert(0, result[1])
         entry_o.insert(0, result[2])
@@ -169,7 +135,7 @@ but_show.grid(row = 8, column = 1, padx = 0, ipadx=10, pady =10)
 but_exit = Button(root, text = 'Выход', command=exit)
 but_exit.grid(row = 8, column = 2, ipadx=10, padx=10, pady =10)
 
-level_list = ['csv', 'json']
+level_list = ['txt', 'csv', 'json']
 file_exp = StringVar(value=level_list[1])
 drop_down = ttk.Combobox(root, textvariable = file_exp, values = level_list, state="readonly")
 drop_down.grid(row = 9, column = 1, columnspan=1, padx=10, pady=10)
