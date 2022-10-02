@@ -20,9 +20,6 @@ def check_telephone_number(symbol: str) -> str:
     return symbol
 
 def check_fio(symbol: str) -> str:
-    '''
-    Проверка ввода ФИО (40 символов и, возможно '-')
-    '''
     new_string = ''
     if len(symbol)>2 and len(symbol) <=40:
         for i in range(len(symbol)):
@@ -34,10 +31,7 @@ def check_fio(symbol: str) -> str:
                     new_string = new_string + symbol[i].upper()
                 else:
                     new_string = new_string + symbol[i] 
-
         return new_string
     else:
         log.logger(f"Ошибка в строке {symbol}", "Ошибка")
         return ''
-        
-
